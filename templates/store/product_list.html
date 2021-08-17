@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Product List</h1>
+        <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Reorder Level</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in object_list  %}
+                    <tr>
+                    <td><a href="{{ product.pk }}">{{ product.name }}</a> </td>
+                    <td> {{ product.quantity }} </td>
+                    <td> {{ product.reorder_level }} </td>     
+                {% endfor %}
+                    </tr>
+            </tbody>
+        </table>
+
+        <h1>Reorder List</h1>
+        <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Reorder Quantity</th>
+                    <th>Processed Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reorder in object_list  %}
+                    <tr>
+                    <td><a href="{{ reorder.pk }}">{{ reorder.name }}</a> </td>
+                    <td> {{ reorder.quantity }} </td>
+                    <td> {{ reorder.reorder_level }} </td>     
+                {% endfor %}
+                    </tr>
+            </tbody>
+        </table>
+{% endblock %}
