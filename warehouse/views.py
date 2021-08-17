@@ -19,7 +19,6 @@ def process_reorder(request, pk):
         form = ProcessReorderForm(request.POST)
         if form.is_valid():
             process_status = form.cleaned_data['process_status']
-            
 
             reorder.processed = process_status
             product_quantity_to_update = product.quantity
