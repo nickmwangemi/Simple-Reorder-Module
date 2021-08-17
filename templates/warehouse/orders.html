@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content%}
+<p>This is the reorder for {{ product.name }} that has a current quantity of {{ product.quantity}}</p>
+<p>Reorder quantity to be processed: {{ reorder.quantity }}</p>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="SUBMIT">
+</form>
+{% endblock %}

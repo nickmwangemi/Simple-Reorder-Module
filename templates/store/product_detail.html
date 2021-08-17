@@ -2,6 +2,14 @@
 
 
 {% block content %}
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
     <h1>Product Detail</h1>
         <div>
         <table>
@@ -21,5 +29,16 @@
             </tbody>
         </table>
         <br>
-        <a href="{% url 'Product' %}">Back to Product List</a>
+        <a href="{% url 'store:Sell' product.pk %}">
+            <button type="submit">SELL</button>
+        </a>
+        <a href="{% url 'store:Reorder Product' product.pk %}">
+            <button type="submit">REORDER</button>
+        </a>
+        
+
+        <br>
+        <a href="{% url 'store:Product' %}">Back to Product List</a>
+        <br>
+
 {% endblock %}

@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 
-
 {% block content %}
     <h1>Reorder Detail</h1>
         <div>
@@ -21,6 +20,9 @@
             </tbody>
         </table>
         <br>
+        <a href="{% url 'warehouse:Process Reorder' reorder.pk %}">
+            <button type="submit">DISPATCH</button>
+        </a>
 
         <br>
         <a href="{% url 'store:Product' %}">Back to Product List</a>

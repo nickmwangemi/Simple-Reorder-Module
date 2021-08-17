@@ -14,9 +14,9 @@
             <tbody>
                 {% for reorder in object_list  %}
                     <tr>
-                    <td><a href="{{ reorder.pk }}">{{ reorder.name }}</a> </td>
+                    <td><a href="{{ reorder.pk }}">{{ reorder.product }}</a> </td>
                     <td> {{ reorder.quantity }} </td>
-                    <td> {{ reorder.reorder_level }} </td>     
+                    <td> {{ reorder.processed }} </td>     
                 {% endfor %}
                     </tr>
             </tbody>

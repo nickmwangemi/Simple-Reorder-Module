@@ -1,0 +1,7 @@
+{% extends "base.html"%}
+
+{% block content %}
+<a href="{% url 'store:Product' %}" target="_blank">Store</a>
+<br>
+<a href="{% url 'warehouse:Reorder' %}" target="_blank">Warehouse</a>
+{% endblock %}
