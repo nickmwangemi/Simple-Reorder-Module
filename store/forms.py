@@ -5,6 +5,3 @@ class SellForm(forms.Form):
 
 class ReorderForm(forms.Form):
     reorder_quantity = forms.IntegerField(label='Enter quantity to reorder')
-
-class ProcessReorderForm(forms.Form):
-    process_status = forms.BooleanField()

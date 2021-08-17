@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.views.generic import DetailView, ListView
-from store.forms import ProcessReorderForm
+from warehouse.forms import ProcessReorderForm
 from store.models import Product, Reorder
 
 # Create your views here.
@@ -17,6 +17,7 @@ def process_reorder(request, pk):
     product = Product.objects.get(id=reorder.product.pk)
     if request.method == 'POST':
         form = ProcessReorderForm(request.POST)
+        print(form)
         if form.is_valid():
             process_status = form.cleaned_data['process_status']
 
