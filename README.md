@@ -46,7 +46,10 @@ Before setting up, please make sure that you have Python3.6+ installed and runni
 
 The server should be available at [http://127.0.0.1:8000](http://127.0.0.1:8000), while the admin panel will be at [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
 
-
+9. To run tests, open a new terminal window with the virtual environment activated and environment variables sourced and run the following command:
+```bash
+  python manage.py test
+```
 ## Tech Stack
 This application is built using Django.
 
