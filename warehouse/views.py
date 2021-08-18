@@ -17,7 +17,6 @@ def process_reorder(request, pk):
     product = Product.objects.get(id=reorder.product.pk)
     if request.method == 'POST':
         form = ProcessReorderForm(request.POST)
-        print(form)
         if form.is_valid():
             process_status = form.cleaned_data['process_status']
 

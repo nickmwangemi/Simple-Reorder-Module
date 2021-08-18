@@ -8,7 +8,8 @@
                 <tr>
                     <th>Product Name</th>
                     <th>Reorder Quantity</th>
-                    <th>Processed Status</th>
+                    <th>Status</th>
+                    <th>Process Reorder</th>
                 </tr>
             </thead>
             <tbody>
@@ -16,7 +17,18 @@
                     <tr>
                     <td><a href="{{ reorder.pk }}">{{ reorder.product }}</a> </td>
                     <td> {{ reorder.quantity }} </td>
-                    <td> {{ reorder.processed }} </td>     
+                    <td> {{ reorder.processed }} </td>
+                    {% if reorder.status == True %}
+                    <td><span>Processed</span></td>
+                    {% else %}
+                    <td>
+                        <a href="{% url 'warehouse:Process Reorder' reorder.pk%}">
+                            <button type="submit">
+                                Process Reorder
+                            </button>
+                        </a>
+                    </td>   
+                    {% endif %}
                 {% endfor %}
                     </tr>
             </tbody>

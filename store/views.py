@@ -16,19 +16,20 @@ class ProductDetailView(DetailView):
 
 
 def sell_product(request, pk):
+    product = Product.objects.get(pk=pk)
     if request.method == 'POST':
         form = SellForm(request.POST)
+        print(form)
         if form.is_valid():
             sell_quantity = form.cleaned_data['quantity']
 
-            product = Product.objects.get(pk=pk)
             product.quantity -= int(sell_quantity)
             product.save()
             messages.info(request, 'Product successfully sold')
-            return redirect('Product Detail', product.id)
+            return redirect('store:Product Detail', product.id)
     else:
         form = SellForm()
-    return render(request, 'store/sell_product.html', {'form': form})
+    return render(request, 'store/sell_product.html', {'form': form, 'product': product})
 
 def reorder_product(request, pk):
     if request.method == 'POST':

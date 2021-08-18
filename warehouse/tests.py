@@ -1,7 +1,8 @@
-from django.http import HttpRequest 
+from django.http import HttpRequest
 from django.test import TestCase
-from http import HTTPStatus
+
 from warehouse.forms import ProcessReorderForm
+
 
 # Create your tests here.
 class TestProcessReorder(TestCase):
@@ -25,8 +26,14 @@ class TestProcessReorder(TestCase):
     def test_empty_form(self):
         form = ProcessReorderForm()
         self.assertInHTML(
-            '<input type="text" name="date" required id="id_date">', str(form)
+            '<input type="checkbox" name="process_status" required id="id_process_status" >', str(form)
         )
         self.assertInHTML(
-            '<input type="text" name="due_date" required id="id_due_date">', str(form)
+            '<input type="checkbox" name="process_status" required id="id_process_status" >', str(form)
         )
+
+    def test_process_reorder(self):
+        request = HttpRequest()
+        form = ProcessReorderForm(request.POST)
+        form['process_status'] == request.POST.get('process_status')
+        self.assertFalse(form.is_valid())

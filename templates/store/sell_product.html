@@ -1,6 +1,7 @@
 {% extends "base.html"%}
 
 {% block content %}
+<p>This is a sale for {{ product.name }} that has a current quantity of {{ product.quantity}}</p>
 <form action="" method="post">
     {% csrf_token %}
     {{ form }}
