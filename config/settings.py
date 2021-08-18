@@ -24,7 +24,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = os.environ.get('DEBUG', '') != 'False'
 
 
 ALLOWED_HOSTS = ['127.0.0.1','nicks-simple-reorder-module.herokuapp.com']
