@@ -17,13 +17,17 @@ class ProductDetailView(DetailView):
 
 def sell_product(request, pk):
     product = Product.objects.get(pk=pk)
+    if product.quantity <= 0:
+        messages.info(request, 'Cannot sell a product with no inventory')
+        return redirect('store:Product Detail', product.id)
+
     if request.method == 'POST':
         form = SellForm(request.POST)
-        print(form)
         if form.is_valid():
             sell_quantity = form.cleaned_data['quantity']
 
             product.quantity -= int(sell_quantity)
+            print(product.quantity)
             product.save()
             messages.info(request, 'Product successfully sold')
             return redirect('store:Product Detail', product.id)
